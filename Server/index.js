@@ -10,6 +10,8 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
+
+// https://auth-v1-alpha.vercel.app
 app.use(express.json());
 app.use(
   cors({
