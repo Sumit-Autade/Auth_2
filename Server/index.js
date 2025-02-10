@@ -71,12 +71,12 @@ passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
 
 app.get(
-  "/auth/google",
+  "https://auth-v1-4.onrender.com/auth/google",
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
 app.get(
-  "/auth/google/callback",
+  "https://auth-v1-4.onrender.com/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/" }),
   (req, res) => {
     res.redirect(`${process.env.CLIENT_URL}/dashboard`);
