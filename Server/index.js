@@ -11,7 +11,7 @@ const cookieParser = require("cookie-parser");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 
-pp.use(express.json());
+app.use(express.json());
 app.use(
   cors({
     origin: ["http://localhost:3000", "https://auth-2-self.vercel.app"], // Allow local and deployed frontend
