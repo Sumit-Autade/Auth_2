@@ -11,40 +11,40 @@ const cookieParser = require("cookie-parser");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 
-// https://auth-v1-alpha.vercel.app
-app.use(express.json());
+pp.use(express.json());
 app.use(
   cors({
-    origin: "https://auth-2-self.vercel.app", // Set the specific frontend URL here
-    credentials: true,  // Important for cookies, sessions, and authorization headers
+    origin: ["http://localhost:3000", "https://auth-2-self.vercel.app"], // Allow local and deployed frontend
+    credentials: true, // Required for cookies and sessions
   })
 );
 app.use(cookieParser());
+
+// Session configuration
 app.use(
   session({
     secret: "Harsh",
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false, httpOnly: true },
+    cookie: { secure: process.env.NODE_ENV === "production", httpOnly: true }, // Secure cookie in production
   })
 );
+
+// Initialize Passport
 app.use(passport.initialize());
 app.use(passport.session());
 
-// connectDatabase("mongodb+srv://admin:admin@cluster0.3g5rbuq.mongodb.net/auth");
+// Connect to MongoDB
 connectDatabase("mongodb+srv://sumit:sumit@cluster0.gvjdh.mongodb.net/auth");
 
-//basic authentication route
-app.use(router);
-
-//google authentication route
+// Google OAuth Strategy
 passport.use(
   new GoogleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://auth-v1-4.onrender.com/auth/google/callback",
-      passReqToCallback : true,
+      callbackURL: "https://auth-v1-lahf.onrender.com/auth/google/callback", // ✅ Updated Backend URL
+      passReqToCallback: true,
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
@@ -70,9 +70,18 @@ passport.use(
   )
 );
 
-passport.serializeUser((user, done) => done(null, user));
-passport.deserializeUser((user, done) => done(null, user));
+// Passport serialization
+passport.serializeUser((user, done) => done(null, user.id));
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await User.findById(id);
+    done(null, user);
+  } catch (err) {
+    done(err, null);
+  }
+});
 
+// Google Auth Routes
 app.get(
   "/auth/google",
   passport.authenticate("google", { scope: ["profile", "email"] })
@@ -86,13 +95,15 @@ app.get(
   }
 );
 
-//hello google callback auths here please dont change much senitive
+// Logout Route
 app.get("/logout", (req, res) => {
   req.logout(() => res.redirect(`${process.env.CLIENT_URL}`));
 });
 
+// Get User Info
 app.get("/user", (req, res) => res.send(req.user));
 
+// Start Server
 app.listen(process.env.PORT, () =>
   console.log(`Server started on port ${process.env.PORT}`)
 );
