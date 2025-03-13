@@ -74,12 +74,12 @@ passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
 
 app.get(
-  "https://auth-v1-4.onrender.com/auth/google",
+  "/auth/google",
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
 app.get(
-  "https://auth-v1-4.onrender.com/auth/google/callback",
+  "/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/" }),
   (req, res) => {
     res.redirect(`${process.env.CLIENT_URL}/dashboard`);
@@ -90,9 +90,8 @@ app.get("/logout", (req, res) => {
   req.logout(() => res.redirect(`${process.env.CLIENT_URL}`));
 });
 
-// Get User Info
 app.get("/user", (req, res) => res.send(req.user));
 
 app.listen(process.env.PORT, () =>
-  console.log(`Server started in on ${process.env.PORT}`)
+  console.log(`Server started on port ${process.env.PORT}`)
 );
