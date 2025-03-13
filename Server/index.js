@@ -86,6 +86,7 @@ app.get(
   }
 );
 
+//hello google callback auths here please dont change much senitive
 app.get("/logout", (req, res) => {
   req.logout(() => res.redirect(`${process.env.CLIENT_URL}`));
 });
