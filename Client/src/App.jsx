@@ -17,7 +17,7 @@ import { motion } from "framer-motion";
 import { AiOutlineGoogle } from "react-icons/ai";
 
 // const API_URL = "https://auth-v1-4.onrender.com";
-const API_URL = "https://auth-2-sju6.onrender.com";
+const API_URL = "https://auth-v1-lahf.onrender.com";
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordRegex =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;

@@ -9,7 +9,7 @@ const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
   // const API_URL = "https://auth-v1-4.onrender.com";
-  const API_URL = "https://auth-2-sju6.onrender.com";
+  const API_URL = "https://auth-v1-lahf.onrender.com";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
