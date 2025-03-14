@@ -53,7 +53,7 @@ const Dashboard = ({ user }) => {
         transition={{ duration: 0.5 }}
         className="w-full max-w-lg bg-white shadow-xl p-8 rounded-2xl"
       >
-        <h2 className="text-3xl font-bold text-center text-blue-700 mb-6">
+        <h2 className="text-3xl font-bold text-center text-black-700 mb-6">
           Create Your Profile
         </h2>
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -209,7 +209,7 @@ const Dashboard = ({ user }) => {
           <motion.button
             type="submit"
             whileTap={{ scale: 0.9 }}
-            className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-all shadow-md"
+            className="w-full bg-[#002b5a] text-white p-3 rounded-lg hover:[#002b5a] transition-all shadow-md"
           >
             Continue
           </motion.button>
