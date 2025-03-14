@@ -83,7 +83,7 @@ const passwordRegex =
     };
   
     return (
-      <div className="min-h-screen flex items-center justify-center bg-blue-50 p-6">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#fff0f5] via-[#f0f8ff] to-[#f5f5f5] p-6">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -200,7 +200,7 @@ const passwordRegex =
     };
   
     return (
-      <div className="min-h-screen flex items-center justify-center bg-blue-50 p-6">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#fff0f5] via-[#f0f8ff] to-[#f5f5f5] p-6">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
