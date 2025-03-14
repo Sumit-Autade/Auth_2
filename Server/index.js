@@ -46,7 +46,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://auth-v1-lahf.onrender.com/auth/google/callback", // ✅ Updated Backend URL
+      callbackURL: "https://auth-2-sju6.onrender.com/auth/google/callback", // mkc ye url ki
       passReqToCallback: true,
     },
     async (accessToken, refreshToken, profile, done) => {
