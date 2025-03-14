@@ -17,7 +17,8 @@ const Dashboard = ({ user }) => {
     studyHoursWeekends: "",
   });
 
-  const API_URL = "https://auth-v1-lahf.onrender.com";
+  // const API_URL = "https://auth-v1-lahf.onrender.com";
+  const API_URL = "https://auth-2-sju6.onrender.com";
 
   if (user?.profile) {
     window.location.href = "https://kplor.com/";
