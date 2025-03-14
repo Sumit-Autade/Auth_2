@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaUniversity, FaBook, FaCalendarAlt } from "react-icons/fa";
+import { MdOutlineMailOutline } from "react-icons/md";
+import { IoMdPerson } from "react-icons/io";  
+import { GoGoal } from "react-icons/go";
+import { IoIosTime } from "react-icons/io";
+import { FaClock } from "react-icons/fa";
+import { GrUserExpert } from "react-icons/gr";
 import axios from "axios";
 
 const Dashboard = ({ user }) => {
@@ -17,7 +23,6 @@ const Dashboard = ({ user }) => {
     studyHoursWeekends: "",
   });
 
-  // const API_URL = "https://auth-v1-lahf.onrender.com";
   const API_URL = "https://auth-2-sju6.onrender.com";
 
   if (user?.profile) {
@@ -54,7 +59,7 @@ const Dashboard = ({ user }) => {
         <form onSubmit={handleSubmit} className="space-y-5">
           {/* Name */}
           <motion.div whileHover={{ scale: 1.05 }}>
-            <label className="block text-blue-900 font-semibold">Full Name</label>
+            <label className="block text-blue-900 font-semibold flex items-center gap-2"><IoMdPerson className="text-blue-700" />Full Name</label>
             <input
               type="text"
               name="name"
@@ -68,7 +73,7 @@ const Dashboard = ({ user }) => {
 
           {/* Email */}
           <motion.div whileHover={{ scale: 1.05 }}>
-            <label className="block text-blue-900 font-semibold">Email</label>
+            <label className="block text-blue-900 font-semibold flex items-center gap-2"><MdOutlineMailOutline className="text-blue-700"/>Email</label>
             <input
               type="email"
               name="email"
@@ -82,7 +87,7 @@ const Dashboard = ({ user }) => {
 
           {/* University */}
           <motion.div whileHover={{ scale: 1.05 }}>
-            <label className=" text-blue-900 font-semibold flex items-center gap-2">
+            <label className="block text-blue-900 font-semibold flex items-center gap-2">
               <FaUniversity className="text-blue-700" /> Select University
             </label>
             <input
@@ -98,7 +103,7 @@ const Dashboard = ({ user }) => {
 
           {/* College */}
           <motion.div whileHover={{ scale: 1.05 }}>
-            <label className=" text-blue-900 font-semibold flex items-center gap-2">
+            <label className="block text-blue-900 font-semibold flex items-center gap-2">
               <FaBook className="text-blue-700" /> College
             </label>
             <input
@@ -114,7 +119,7 @@ const Dashboard = ({ user }) => {
 
           {/* Semester */}
           <motion.div whileHover={{ scale: 1.05 }}>
-            <label className=" text-blue-900 font-semibold flex items-center gap-2">
+            <label className="block text-blue-900 font-semibold flex items-center gap-2">
               <FaCalendarAlt className="text-blue-700" /> Select Semester
             </label>
             <input
@@ -130,7 +135,7 @@ const Dashboard = ({ user }) => {
 
           {/* Goals */}
           <motion.div whileHover={{ scale: 1.05 }}>
-            <label className="block text-blue-900 font-semibold">Goals</label>
+            <label className="block text-blue-900 font-semibold flex items-center gap-2"> <GoGoal  className="text-blue-700"/>Goals</label>
             <textarea
               name="goals"
               value={profile.goals}
@@ -143,7 +148,7 @@ const Dashboard = ({ user }) => {
 
           {/* Study Time Left */}
           <motion.div whileHover={{ scale: 1.05 }}>
-            <label className="block text-blue-900 font-semibold">Time Left to Study (months)</label>
+            <label className="block text-blue-900 font-semibold flex items-center gap-2"><IoIosTime className="text-blue-700"/>Time Left to Study (months)</label>
             <input
               type="number"
               name="timeLeft"
@@ -158,7 +163,7 @@ const Dashboard = ({ user }) => {
 
           {/* Proficiency */}
           <motion.div whileHover={{ scale: 1.05 }}>
-            <label className="block text-blue-900 font-semibold">Proficiency Level</label>
+            <label className="block text-blue-900 font-semibold flex items-center gap-2"><GrUserExpert className="text-blue-700" />Proficiency Level</label>
             <select
               name="proficiency"
               value={profile.proficiency}
@@ -173,7 +178,7 @@ const Dashboard = ({ user }) => {
 
           {/* Study Hours (Weekdays & Weekends) */}
           <motion.div whileHover={{ scale: 1.05 }}>
-            <label className="block text-blue-900 font-semibold">Study Hours (Weekdays)</label>
+            <label className="block text-blue-900 font-semibold flex items-center gap-2"><FaClock  className="text-blue-700"/>Study Hours (Weekdays)</label>
             <input
               type="number"
               name="studyHoursWeekdays"
@@ -187,7 +192,7 @@ const Dashboard = ({ user }) => {
           </motion.div>
 
           <motion.div whileHover={{ scale: 1.05 }}>
-            <label className="block text-blue-900 font-semibold">Study Hours (Weekends)</label>
+            <label className="block text-blue-900 font-semibold flex items-center gap-2"> <FaClock  className="text-blue-700"/>Study Hours (Weekends)</label>
             <input
               type="number"
               name="studyHoursWeekends"
