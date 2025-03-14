@@ -12,13 +12,15 @@ import {
 import Dashboard from "./Dashboard";
 import ForgotPassword from "./utils/ForgotPassword";
 import ResetPassword from "./utils/ResetPassword";
+import Navbar from "./utils/Navbar";
+import { motion } from "framer-motion";
+import { AiOutlineGoogle } from "react-icons/ai";
 
 // const API_URL = "https://auth-v1-4.onrender.com";
 const API_URL = "https://auth-v1-lahf.onrender.com";
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordRegex =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
 
   const Login = ({ setUser }) => {
     const [form, setForm] = useState({ email: "", password: "" });
@@ -48,15 +50,12 @@ const passwordRegex =
       setEmailError("");
       setPasswordError("");
   
-      // Stop submission if email or password validation fails
       if (!emailRegex.test(form.email)) {
         toast.error("⚠️ Invalid email format");
         return;
       }
       if (!passwordRegex.test(form.password)) {
-        toast.error(
-          "⚠️ Password must be at least 8 characters, include uppercase, lowercase, digit, and special character"
-        );
+        toast.error("⚠️ Password must be strong");
         return;
       }
   
@@ -66,7 +65,6 @@ const passwordRegex =
         });
   
         setUser(res.data?.user);
-  
         toast.success("🎉 Login successful! Welcome back!", { autoClose: 3000 });
   
         setTimeout(() => {
@@ -85,7 +83,12 @@ const passwordRegex =
   
     return (
       <div className="min-h-screen flex items-center justify-center bg-blue-50 p-6">
-        <div className="w-full max-w-md bg-white shadow-lg p-6 rounded-lg">
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="w-full max-w-md bg-white shadow-lg p-6 rounded-lg"
+        >
           <h2 className="text-lg font-semibold mb-4 text-blue-600">Login</h2>
           <form onSubmit={login} className="space-y-3">
             <input
@@ -108,9 +111,7 @@ const passwordRegex =
               onChange={handleChange}
               required
             />
-            {passwordError && (
-              <p className="text-red-500 text-sm">{passwordError}</p>
-            )}
+            {passwordError && <p className="text-red-500 text-sm">{passwordError}</p>}
   
             <button
               className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
@@ -122,8 +123,9 @@ const passwordRegex =
   
           <button
             onClick={googleLogin}
-            className="w-full mt-3 bg-red-500 text-white p-2 rounded hover:bg-red-600"
+            className="w-full mt-3 bg-red-500 text-white p-2 rounded flex items-center justify-center gap-2 hover:bg-red-600 shadow-md"
           >
+            <AiOutlineGoogle className="h-5 w-5" />
             Login with Google
           </button>
   
@@ -143,7 +145,7 @@ const passwordRegex =
               </Link>
             </p>
           </div>
-        </div>
+        </motion.div>
   
         <ToastContainer />
       </div>
@@ -171,48 +173,40 @@ const passwordRegex =
   
     const register = async (e) => {
       e.preventDefault();
-      
+  
       if (!passwordRegex.test(form.password)) {
-        toast.error("⚠️ Password does not meet security requirements!", {
-          position: "top-right",
-          autoClose: 3000,
-        });
-        return; // Prevent form submission if the password is invalid
+        toast.error("⚠️ Password does not meet security requirements!");
+        return;
       }
   
       try {
         const res = await axios.post(`${API_URL}/signup`, form);
         setUser(res.data?.user);
   
-        toast.success("🎉 Sign-up successful! Welcome!", {
-          position: "top-right",
-          autoClose: 3000,
-        });
+        toast.success("🎉 Sign-up successful! Welcome!");
   
         setTimeout(() => {
           navigate("/dashboard");
         }, 3000);
       } catch (err) {
-        console.error(err.response?.data?.msg);
-        toast.error(`❌ ${err.response?.data?.msg || "An error occurred"}`, {
-          position: "top-right",
-          autoClose: 3000,
-        });
+        toast.error(`❌ ${err.response?.data?.msg || "An error occurred"}`);
       }
     };
   
     const googleSignup = () => {
-      toast.info("🔄 Redirecting to Google Sign-Up...", {
-        position: "top-right",
-        autoClose: 3000,
-      });
+      toast.info("🔄 Redirecting to Google Sign-Up...");
       window.location.href = `${API_URL}/auth/google`;
     };
   
     return (
       <div className="min-h-screen flex items-center justify-center bg-blue-50 p-6">
-        <div className="w-full max-w-md bg-white shadow-lg p-6 rounded-lg">
-          <h2 className="text-lg font-semibold mb-4 text-blue-600">Sign Up</h2>
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="w-full max-w-md bg-white shadow-lg p-6 rounded-lg"
+        >
+          <h2 className="text-xl font-bold mb-4 text-blue-600 ">Sign Up</h2>
           <form onSubmit={register} className="space-y-3">
             <input
               className="w-full p-2 border rounded border-blue-300 focus:ring focus:ring-blue-200"
@@ -250,8 +244,9 @@ const passwordRegex =
           </form>
           <button
             onClick={googleSignup}
-            className="w-full mt-3 bg-red-500 text-white p-2 rounded hover:bg-red-600"
+            className="w-full mt-3 bg-red-500 text-white p-2 rounded flex items-center justify-center gap-2 hover:bg-red-600 shadow-md"
           >
+            <AiOutlineGoogle className="h-5 w-5" />
             Sign Up with Google
           </button>
           <div className="mt-4 text-center">
@@ -262,32 +257,12 @@ const passwordRegex =
               </Link>
             </p>
           </div>
-        </div>
-  
-        <ToastContainer /> {/* Ensure toasts are displayed */}
+        </motion.div>
+        <ToastContainer />
       </div>
     );
   };
-
-// const Home = ({ user, logout }) => (
-//   <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
-//     <h1 className="text-3xl font-bold mb-6">Authentication System</h1>
-//     <div>
-//       <Link
-//         to="/login"
-//         className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-//       >
-//         Login
-//       </Link>
-//       <Link
-//         to="/"
-//         className="bg-green-500 text-white px-4 py-2 rounded ml-2 hover:bg-green-600"
-//       >
-//         Sign Up
-//       </Link>
-//     </div>
-//   </div>
-// );
+  
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -305,6 +280,7 @@ const App = () => {
 
   return (
     <Router>
+      <Navbar />
       {/* <ToastContainer position="top-right" autoClose={3000} /> */}
       <Routes>
         <Route path="/" element={<Signup setUser={setUser} />} />
