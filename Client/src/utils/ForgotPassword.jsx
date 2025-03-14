@@ -36,7 +36,7 @@ const ForgotPassword = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#fff0f5] via-[#f0f8ff] to-[#f5f5f5] p-6">
       <div className="w-full max-w-md bg-white shadow-lg p-6 rounded-lg">
-        <h2 className="text-lg font-semibold mb-4 text-blue-600">Forgot Password</h2>
+        <h2 className="text-lg font-bold mb-4 text-black-600">Forgot Password</h2>
         <form onSubmit={handleSubmit} className="space-y-3">
           <input
             className="w-full p-2 border rounded border-blue-300 focus:ring focus:ring-blue-200"
@@ -46,7 +46,7 @@ const ForgotPassword = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <button className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+          <button className="w-full bg-[#002b5a] text-white p-2 rounded hover:bg-[#002b5a]">
             Send OTP
           </button>
         </form>
