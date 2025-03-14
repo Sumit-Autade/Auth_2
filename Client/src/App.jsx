@@ -88,9 +88,9 @@ const passwordRegex =
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full max-w-md bg-white shadow-lg p-6 rounded-lg"
+          className="w-full max-w-xl bg-white shadow-lg p-6 rounded-lg h-[400px]"
         >
-          <h2 className="text-lg font-semibold mb-4 text-blue-600">Login</h2>
+          <h2 className="text-lg font-bold mb-4 text-black-600">Login</h2>
           <form onSubmit={login} className="space-y-3">
             <input
               className="w-full p-2 border rounded border-blue-300 focus:ring focus:ring-blue-200"
@@ -115,7 +115,7 @@ const passwordRegex =
             {passwordError && <p className="text-red-500 text-sm">{passwordError}</p>}
   
             <button
-              className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+              className="w-full bg-[#002b5a] text-white p-2 rounded hover:bg-[#5548d4]"
               type="submit"
             >
               Login
@@ -124,7 +124,7 @@ const passwordRegex =
   
           <button
             onClick={googleLogin}
-            className="w-full mt-3 bg-red-500 text-white p-2 rounded flex items-center justify-center gap-2 hover:bg-red-600 shadow-md"
+            className="w-full mt-3 bg-[#002b5a] text-white p-2 rounded flex items-center justify-center gap-2 hover:bg-[#5548d4] shadow-md"
           >
             <AiOutlineGoogle className="h-5 w-5" />
             Login with Google
@@ -205,9 +205,9 @@ const passwordRegex =
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full max-w-md bg-white shadow-lg p-6 rounded-lg"
+          className="w-full max-w-lg bg-white shadow-lg p-6 rounded-lg h-[400px]"
         >
-          <h2 className="text-xl font-bold mb-4 text-blue-600 ">Sign Up</h2>
+          <h2 className="text-xl font-bold mb-4 text-black-600 ">Sign Up</h2>
           <form onSubmit={register} className="space-y-3">
             <input
               className="w-full p-2 border rounded border-blue-300 focus:ring focus:ring-blue-200"
@@ -237,7 +237,7 @@ const passwordRegex =
               <p className="text-red-500 text-sm">{passwordError}</p>
             )}
             <button
-              className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600"
+              className="w-full bg-[#002b5a] text-white p-2 rounded hover:bg-[#5548d4]"
               type="submit"
             >
               Sign Up
@@ -245,7 +245,7 @@ const passwordRegex =
           </form>
           <button
             onClick={googleSignup}
-            className="w-full mt-3 bg-red-500 text-white p-2 rounded flex items-center justify-center gap-2 hover:bg-red-600 shadow-md"
+            className="w-full mt-3 bg-[#002b5a] text-white p-2 rounded flex items-center justify-center gap-2 hover:bg-[#5548d4] shadow-md"
           >
             <AiOutlineGoogle className="h-5 w-5" />
             Sign Up with Google
