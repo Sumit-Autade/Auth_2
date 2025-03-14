@@ -17,7 +17,7 @@ const Dashboard = ({ user }) => {
     studyHoursWeekends: "",
   });
 
-  const API_URL = "https://auth-v1-lahf.onrender.com";
+  const API_URL = "https://auth-2-sju6.onrender.com";
 
   if (user?.profile) {
     window.location.href = "https://kplor.com/";
@@ -81,7 +81,7 @@ const Dashboard = ({ user }) => {
 
           {/* University */}
           <motion.div whileHover={{ scale: 1.05 }}>
-            <label className="block text-blue-900 font-semibold flex items-center gap-2">
+            <label className=" text-blue-900 font-semibold flex items-center gap-2">
               <FaUniversity className="text-blue-700" /> Select University
             </label>
             <input
@@ -97,7 +97,7 @@ const Dashboard = ({ user }) => {
 
           {/* College */}
           <motion.div whileHover={{ scale: 1.05 }}>
-            <label className="block text-blue-900 font-semibold flex items-center gap-2">
+            <label className=" text-blue-900 font-semibold flex items-center gap-2">
               <FaBook className="text-blue-700" /> College
             </label>
             <input
@@ -113,7 +113,7 @@ const Dashboard = ({ user }) => {
 
           {/* Semester */}
           <motion.div whileHover={{ scale: 1.05 }}>
-            <label className="block text-blue-900 font-semibold flex items-center gap-2">
+            <label className=" text-blue-900 font-semibold flex items-center gap-2">
               <FaCalendarAlt className="text-blue-700" /> Select Semester
             </label>
             <input
