@@ -22,7 +22,7 @@ app.use(
   })
 );
 app.use(cookieParser());
-
+app.use(router);
 // Session configuration
 app.use(
   session({
