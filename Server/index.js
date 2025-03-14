@@ -14,8 +14,9 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://auth-2-self.vercel.app"], // Allow local and deployed frontend
-    credentials: true, // Required for cookies and sessions
+    origin: "*", // Allows all origins
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow all methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow common headers
   })
 );
 app.use(cookieParser());
