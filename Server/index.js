@@ -12,11 +12,13 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 
 app.use(express.json());
+
 app.use(
   cors({
-    origin: "*", // Allows all origins
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow all methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allow common headers
+    origin: ["https://auth-2-self.vercel.app", "http://localhost:5173"], // Explicitly list allowed origins
+    credentials: true, // Required for cookies, sessions, and authentication headers
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow necessary HTTP methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow relevant headers
   })
 );
 app.use(cookieParser());
