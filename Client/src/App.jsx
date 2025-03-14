@@ -115,7 +115,7 @@ const passwordRegex =
             {passwordError && <p className="text-red-500 text-sm">{passwordError}</p>}
   
             <button
-              className="w-full bg-[#002b5a] text-white p-2 rounded hover:bg-[#5548d4]"
+              className="w-full bg-[#002b5a] text-white p-2 rounded hover:bg-[#002b5a]"
               type="submit"
             >
               Login
@@ -124,7 +124,7 @@ const passwordRegex =
   
           <button
             onClick={googleLogin}
-            className="w-full mt-3 bg-[#002b5a] text-white p-2 rounded flex items-center justify-center gap-2 hover:bg-[#5548d4] shadow-md"
+            className="w-full mt-3 bg-[#002b5a] text-white p-2 rounded flex items-center justify-center gap-2 hover:bg-[#002b5a] shadow-md"
           >
             <AiOutlineGoogle className="h-5 w-5" />
             Login with Google
@@ -237,7 +237,7 @@ const passwordRegex =
               <p className="text-red-500 text-sm">{passwordError}</p>
             )}
             <button
-              className="w-full bg-[#002b5a] text-white p-2 rounded hover:bg-[#5548d4]"
+              className="w-full bg-[#002b5a] text-white p-2 rounded hover:bg-[#002b5a]"
               type="submit"
             >
               Sign Up
@@ -245,7 +245,7 @@ const passwordRegex =
           </form>
           <button
             onClick={googleSignup}
-            className="w-full mt-3 bg-[#002b5a] text-white p-2 rounded flex items-center justify-center gap-2 hover:bg-[#5548d4] shadow-md"
+            className="w-full mt-3 bg-[#002b5a] text-white p-2 rounded flex items-center justify-center gap-2 hover:bg-[#002b5a] shadow-md"
           >
             <AiOutlineGoogle className="h-5 w-5" />
             Sign Up with Google
